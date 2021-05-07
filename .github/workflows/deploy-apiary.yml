@@ -12,6 +12,9 @@ jobs:
     container: node:alpine
 
     steps:
+      - name: Install sudo package
+        run: apt update && apt install sudo
+      
       - name: Update Git
         run: apk add git --update-cache
 
