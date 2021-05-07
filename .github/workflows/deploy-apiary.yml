@@ -22,7 +22,7 @@ jobs:
       
       - name: Build
         run: |
-          npm ci
+          npm install --only=production
           npm run build
       
       - name: Commit & Push
