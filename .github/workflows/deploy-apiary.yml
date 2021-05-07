@@ -31,3 +31,5 @@ jobs:
           git add apiary.apib
           git commit -m "v$(node -p "require('./package.json').version")"
           git push origin main
+
+          
