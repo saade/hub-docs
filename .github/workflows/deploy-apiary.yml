@@ -23,8 +23,7 @@ jobs:
       - name: Build
         run: |
           npm install --only=production
-          chmod -R 755 .
-          npm run build
+          sudo npm run build
       
       - name: Commit & Push
         run: |
