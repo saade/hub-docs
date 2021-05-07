@@ -1,8 +1,7 @@
 on:
-  pull_request:
-    branches:
-      - main
-    types: [closed]
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,7 +22,7 @@ jobs:
       - name: Build
         run: |
           npm install --only=production
-          chmod -R 755 apiary.apib
+          sudo chown -R $USER .
           npm run build
       
       - name: Commit & Push
@@ -31,5 +30,3 @@ jobs:
           git add apiary.apib
           git commit -m "v$(node -p "require('./package.json').version")"
           git push origin main
-
-          
