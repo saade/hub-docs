@@ -12,9 +12,6 @@ jobs:
     container: node:alpine
 
     steps:
-      - name: Install sudo package
-        run: apt update && apt install sudo
-      
       - name: Update Git
         run: apk add git --update-cache
 
@@ -26,7 +23,8 @@ jobs:
       - name: Build
         run: |
           npm install --only=production
-          sudo npm run build
+          chmod -R 755 apiary.apib
+          npm run build
       
       - name: Commit & Push
         run: |
