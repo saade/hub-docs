@@ -12,9 +12,9 @@ jobs:
 
     steps:
       - name: Checkout
-        - uses: actions/checkout@v2
-        - run: yarn --production
-        - run: yarn build
+      - uses: actions/checkout@v2
+      - run: yarn --production
+      - run: yarn build
   
   deploy:
     name: Deploy to Apiary
@@ -22,8 +22,8 @@ jobs:
     needs: build
     steps:
       - name: Commit
-        - run: git add apiary.apib
-        - run: git commit -m "v$(node -p "require('./package.json').version")"
-        
+      - run: git add apiary.apib
+      - run: git commit -m "v$(node -p "require('./package.json').version")"
+      
       - name: Push to main
-        - run: git push origin main
+      - run: git push origin main
