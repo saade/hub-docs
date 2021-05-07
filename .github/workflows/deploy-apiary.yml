@@ -6,19 +6,15 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build & Deploy
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    container: alpine:latest
 
     steps:
-      - name: Force Install GIT latest
-        run: |
-          apt-get install -y software-properties-common \
-          && apt-get update \
-          && add-apt-repository -y ppa:git-core/ppa \
-          && apt-get update \
-          && apt-get install -y git
-          
+      - name: Update Git
+        run: apk add git --update-cache
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -28,12 +24,7 @@ jobs:
         run: |
           yarn --production
           yarn build
-  
-  deploy:
-    name: Deploy to Apiary
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+      
       - name: Commit & Push
         run: |
           git add apiary.apib
