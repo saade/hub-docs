@@ -1,0 +1,11 @@
+{
+  "version": "0.0.0",
+  "scripts": {
+    "build": "hercule docs/index.apib -o apiary.apib",
+    "act": "act -l",
+    "act:install": "curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash"
+  },
+  "dependencies": {
+    "hercule": "^5.1.3"
+  }
+}

@@ -1,34 +1,3 @@
-FORMAT: 1A
-HOST: http://localhost:3000/api
-
-# Multiplier Rest API
-Bla Bla Bla ...
-
-## Autenticação
-**API REST Multiplier** usa autenticação via *Json Web Tokens* ([JWT](https://jwt.io/)).
-Nossos tokens são gerados pelo nosso servidor e carregam a assinatura do *servidor + cliente*.
-Para adquirir um token, entre em contato com a [**Equipe de Integração**]() da Multiplier.
-
-## Tipos de Requisição
-A comunicação cliente-servidor é feita através de JSON para representar os estados dos recursos.
-Requisições com um corpo (body) devem usar JSON para consultar e alterar o estado de um recurso.
-
-## Status codes
-Respostas comuns do servidor
-
-- 200 `OK` - a requisição foi bem sucedida.
-- 201 `Created` - a requisição foi bem sucedida e a resource foi criada.
-- 204 `No Content` - a requisição foi bem sucedida mas nâo contém um retorno.
-- 400 `Bad Request` - erro na validação dos dados.
-- 401 `Unauthorized` - autenticação falhou.
-- 404 `Not Found` - a resource não foi encontrada.
-- 500 `Internal Server Error` - algo inesperado aconteceu no lado do servidor.
-- 501 `Not Implemented` - método não implementado.
-
-## URL base da API REST
-A url base para consumo dos recursos é: `https://hub.multiplier.com.br/multiplier`
-
-## Group Produto
 A API de Produto permite que você liste, visualize, edite e delete produtos.
 
 ### Dependências
@@ -68,3 +37,12 @@ Um Produto pode ser representado pela seguinte estrutura:
 | `codigoCaracteristicas`    | string(250)[ ] | Não         | Array de códigos das Características     |
 | `status`                   | string(250)    | Sim         | Status, Ativo(1) ou Inativo(0)           |
 
+:[Listar Produtos]('./operations/Listar Produtos.apib')
+
+:[Consultar Produto]('./operations/Consultar Produto.apib')
+
+:[Criar Produto]('./operations/Criar Produto.apib')
+
+:[Atualizar Produto]('./operations/Atualizar Produto.apib')
+
+:[Deletar Produto]('./operations/Deletar Produto.apib')
