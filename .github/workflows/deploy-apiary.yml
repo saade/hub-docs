@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: |
           yarn --production
-          run: yarn build
+          yarn build
   
   deploy:
     name: Deploy to Apiary
