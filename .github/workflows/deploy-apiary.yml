@@ -22,8 +22,8 @@ jobs:
       
       - name: Build
         run: |
-          yarn --production
-          yarn build
+          npm ci
+          npm run build
       
       - name: Commit & Push
         run: |
