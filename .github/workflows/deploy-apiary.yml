@@ -22,7 +22,7 @@ jobs:
       
       - name: Build
         run: |
-          npm install --only=production
+          npm install --only=production --unsafe-perm=true --allow-root
           npm run build
       
       - name: Commit & Push
