@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: |
           npm install --only=production
-          chown -R $USER .
+          chown -R $USER:$USER .
           npm run build
       
       - name: Commit & Push
