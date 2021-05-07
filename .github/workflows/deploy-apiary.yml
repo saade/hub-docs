@@ -11,8 +11,11 @@ jobs:
     container: node:alpine
 
     steps:
-      - name: Update Git
-        run: apk add git --update-cache
+      - name: Update & Config Git
+        run: |
+          apk add git --update-cache
+          git config --global user.name "Github CI"
+          git config --global user.email ""
 
       - name: Checkout
         uses: actions/checkout@v2
