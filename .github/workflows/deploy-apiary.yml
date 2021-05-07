@@ -9,7 +9,7 @@ jobs:
     name: Build & Deploy
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    container: alpine:latest
+    image: node:alpine
 
     steps:
       - name: Update Git
