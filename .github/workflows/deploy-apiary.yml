@@ -1,11 +1,12 @@
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
     name: Build & Deploy
-    # if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     container: node:alpine
 
@@ -20,9 +21,8 @@ jobs:
       
       - name: Build
         run: |
-          npm install --only=production
-          chown -R $USER:$USER .
-          npm run build
+          yarn --production
+          yarn build
       
       - name: Commit & Push
         run: |
