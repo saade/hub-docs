@@ -14,8 +14,8 @@ jobs:
       - name: Update & Config Git
         run: |
           apk add git --update-cache
-          git config --global user.name "Github CI"
-          git config --global user.email ""
+          git config --global user.name "Multiplier CI"
+          git config --global user.email "ci@multiplier.com.br"
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -26,6 +26,7 @@ jobs:
         run: |
           yarn --production
           yarn build
+          cat apiary.apib
       
       - name: Commit & Push
         run: |
